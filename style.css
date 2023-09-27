@@ -20,6 +20,18 @@ body {
     font-size: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.scale-tools {
+    animation-name: scale-tools;
+    animation-duration: 1s;
+}
+@keyframes scale-tools {
+    0% {
+        transform: scale(0.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 .tools-cont {
     display: flex;
     height: 3rem;
