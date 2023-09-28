@@ -6,6 +6,7 @@ let eraserToolCont = document.querySelector('.eraser-tool-cont');
 let pencil = document.querySelector('.pencil');
 let eraser = document.querySelector('.eraser');
 let sticky = document.querySelector('.sticky');
+let upload = document.querySelector('.upload');
 let pencilFlag = false;
 let eraserFlag = false;
 
@@ -48,6 +49,28 @@ eraser.addEventListener("click", (e) => {
     else eraserToolCont.style.display = "none";
 })
 
+upload.addEventListener("click", (e) => {
+      // Open file explorer
+      let input = document.createElement("input");
+      input.setAttribute("type", "file");
+      input.click();
+  
+      input.addEventListener("change", (e) => {
+          let file = input.files[0];
+          let url = URL.createObjectURL(file);
+  
+          let stickyTemplateHTML = `
+          <div class="header-cont">
+              <div class="minimize"></div>
+              <div class="remove"></div>
+          </div>
+          <div class="note-cont">
+              <img src="${url}"/>
+          </div>
+          `;
+          createSticky(stickyTemplateHTML);
+      })
+})
 sticky.addEventListener("click", (e) => {
     let stickyCont = document.createElement("div");
     stickyCont.setAttribute("class", "sticky-cont");
